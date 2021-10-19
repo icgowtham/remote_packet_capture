@@ -7,6 +7,9 @@ from core.logger import get_logger
 from flask import abort, flash, has_request_context, render_template, request
 from webapp import app, config
 
+__author__ = 'Ishwarachandra Gowtham'
+__email__ = 'ic.gowtham@gmail.com'
+
 LOGGER = get_logger()
 
 
