@@ -1,0 +1,13 @@
+[Unit]
+Description=uWSGI instance to serve pcap-upload-detect
+After=network.target
+
+[Service]
+User=root
+Group=www-data
+WorkingDirectory=/root/igowtham/pcap_upload_detect
+Environment="PATH=/root/igowtham/pcap_upload_detect/.venv/bin"
+ExecStart=/root/igowtham/pcap_upload_detect/.venv/bin/uwsgi --ini app.ini
+
+[Install]
+WantedBy=multi-user.target

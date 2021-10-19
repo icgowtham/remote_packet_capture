@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+<div class="d-flex justify-content-center align-items-center container-fluid bg-1">
+   {% block content %}
+   <br>
+   <div id="content">
+      <hr>
+      <div class="d-flex justify-content-center align-items-center container-fluid bg-1 shadow rounded-pill">
+         <form id="mainForm" method="post">
+            <div>
+               <h6 class="shadow text-white-50" style="background-color: #6c757d">Select Few Values To Get Started
+               </h6>
+               <table>
+                  <tr id="headRow">
+                     <td align="right">
+                        <label for="nodeIp" data-toggle="tooltip" data-placement="left"
+                           title="Select a node from the list." class="col-form-label">
+                           Node
+                        </label>
+                     </td>
+                     <td>
+                        <select id="nodeIp" name="nodeIp" class="form-select form-control mx-sm-3">
+                           {% for item in nodes %}
+                           <option value={{item}}>{{item}}</option>
+                           {% endfor %}
+                        </select>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+
+                  <tr id="additionalField1">
+                     <td align="right">
+                        <label for="interface" data-toggle="tooltip" data-placement="left"
+                           title="Interface to start capture on the node." class="col-form-label">
+                           Interface
+                        </label>
+                     </td>
+                     <td>
+                        <select id="interface" name="interface" class="form-select form-control mx-sm-3">
+                           <option value=""> </option>
+                        </select>
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+                  <tr id="additionalField2">
+                     <td align="right">
+                        <label for="captureTime" data-toggle="tooltip" data-placement="left"
+                           title="Time to run packet capture on the interface." class="col-form-label">
+                           Packet Capture Time (in secs.)
+                        </label>
+                     </td>
+                     <td>
+                        <input type="text" id="captureTime" name="captureTime" class="form-control mx-sm-3">
+                     </td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+                  <tr>
+                     <td></td>
+                  </tr>
+               </table>
+            </div>
+
+            <br>
+            <div class="d-flex justify-content-center align-items-center container-fluid">
+               <table>
+                  <tr>
+                     <td><button type=submit id="btnSubmit"
+                           class="btn btn-secondary mb-2 shadow rounded-pill">Submit</button></td>
+                  </tr>
+               </table>
+            </div>
+         </form>
+      </div>
+   </div>
+
+   <div id="loading" class="p-3 mb-2 bg-transparent text-dark">
+      <div class="d-flex flex-column align-items-center justify-content-center container-fluid">
+         <div class="row">
+            <!--<div class="spinner-border ml-auto text-secondary float-right shadow" role="status"> -->
+            <img src="/static/images/pendulum.gif" role="status" />
+            <!-- </div> -->
+         </div>
+         <div class="row">
+            <strong>Submitted ...</strong>
+         </div>
+      </div>
+      <div class="progress" style="height: 2px;">
+         <div id="progress_bar" class="progress-bar progress-bar-striped progress-bar-animated shadow rounded-pill"
+            role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+         </div>
+      </div>
+   </div>
+
+   <div id="alerts" class="shadow">
+      {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+      {% for category, message in messages %}
+      <div class="alert alert-warning alert-dismissible fade show" role="alert">
+         {{ message }}
+      </div>
+      {% endfor %}
+      {% endif %}
+      {% endwith %}
+   </div>
+   {% endblock %}
+</div>

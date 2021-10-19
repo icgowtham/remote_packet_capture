@@ -1,0 +1,9 @@
+server {
+    listen 7777;
+    server_name dpi www.dpi.pcap_upload;
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass unix:/root/igowtham/pcap_upload_detect/app.sock;
+    }
+}

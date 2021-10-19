@@ -1,0 +1,5 @@
+# Config file for the web application.
+server_host: 0.0.0.0
+server_port: 7581
+# Remote nodes (where the agent is already running) on which to start the capture.
+nodes: [x.x.x.x, y.y.y.y]
