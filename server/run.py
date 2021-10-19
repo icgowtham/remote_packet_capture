@@ -5,6 +5,9 @@ import os
 
 from webapp import app, config
 
+__author__ = 'Ishwarachandra Gowtham'
+__email__ = 'ic.gowtham@gmail.com'
+
 if __name__ == '__main__':
     BASE_DIR = os.path.abspath(os.path.dirname(__file__))
     os.environ['basedir'] = BASE_DIR
