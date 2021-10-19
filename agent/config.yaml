@@ -1,1 +1,3 @@
+# Agent config file.
 port: 8998
+packet_capture_tool: /usr/sbin/tcpdump

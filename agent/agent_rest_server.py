@@ -26,7 +26,7 @@ async def get_interfaces(request):
     if isinstance(cmd_out, tuple):
         LOGGER.error(str(cmd_out))
         raise exceptions.ServerError
-    interfaces = '|'.join(list(filter(None, cmd_out.split('\n'))))
+    interfaces = list(filter(None, cmd_out.split('\n')))
     return response.json(
         {'interfaces': interfaces}
     )
@@ -40,8 +40,13 @@ async def start_packet_capture(request):
     base_dir = os.path.abspath(os.path.dirname(__file__))
     pcap_file = os.path.join(base_dir, '{itf}_{tm}.pcap'.format(
         itf=intf, tm=datetime.now().strftime('%d_%m_%y_%H_%M_%S')))
-    cmd = 'nohup timeout {tm} tcpdump -i {itf} -w {fl} &'.format(
-        tm=capture_time, itf=intf, fl=pcap_file)
+    cmd = ' '.join(['nohup',
+                   'timeout {tm}'.format(tm=capture_time),
+                   '{tool}'.format(tool=CONFIG.get('packet_capture_tool', 'tcpdump')),
+                    '-i {itf}'.format(itf=intf),
+                    '-w {fl}'.format(fl=pcap_file),
+                    '&'
+                   ])
     cmd_out = execute_shell_cmd(cmd)
     if isinstance(cmd_out, tuple):
         LOGGER.error(str(cmd_out))
@@ -64,7 +69,7 @@ async def get_captured_pcap(request):
 
 if __name__ == '__main__':
     with open('config.yaml') as stream:
-        config = safe_load(stream)
+        CONFIG = safe_load(stream)
     app.run(host='0.0.0.0',
-            port=int(config.get('port', 8118)),
+            port=int(CONFIG.get('port', 8998)),
             debug=True)
