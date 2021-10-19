@@ -6,6 +6,9 @@ import os
 from yaml import safe_load
 from flask import Flask
 
+__author__ = 'Ishwarachandra Gowtham'
+__email__ = 'ic.gowtham@gmail.com'
+
 parent_path = os.path.dirname(os.path.dirname(__file__))
 config_file = os.path.join(parent_path, 'config.yaml')
 with open(config_file) as stream:
