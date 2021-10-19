@@ -4,6 +4,9 @@ import subprocess
 
 from logger import get_logger
 
+__author__ = 'Ishwarachandra Gowtham'
+__email__ = 'ic.gowtham@gmail.com'
+
 LOGGER = get_logger()
 
 
