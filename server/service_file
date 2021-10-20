@@ -1,13 +1,13 @@
 [Unit]
-Description=uWSGI instance to serve pcap-upload-detect
+Description=uWSGI instance to serve remote_packet_capture
 After=network.target
 
 [Service]
 User=root
 Group=www-data
-WorkingDirectory=/root/igowtham/pcap_upload_detect
-Environment="PATH=/root/igowtham/pcap_upload_detect/.venv/bin"
-ExecStart=/root/igowtham/pcap_upload_detect/.venv/bin/uwsgi --ini app.ini
+WorkingDirectory=/home/gowtham/remote_packet_capture/server
+Environment="PATH=/home/gowtham/remote_packet_capture/server/.venv/bin"
+ExecStart=/home/gowtham/remote_packet_capture/server/.venv/bin/uwsgi --ini app.ini
 
 [Install]
 WantedBy=multi-user.target
