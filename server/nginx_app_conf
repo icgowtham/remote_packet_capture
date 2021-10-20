@@ -1,9 +1,9 @@
 server {
     listen 7777;
-    server_name dpi www.dpi.pcap_upload;
+    server_name dpi www.dummy.rpcap;
 
     location / {
         include uwsgi_params;
-        uwsgi_pass unix:/root/igowtham/pcap_upload_detect/app.sock;
+        uwsgi_pass unix:/home/gowtham/remote_packet_capture/server/app.sock;
     }
 }
