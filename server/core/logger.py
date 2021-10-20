@@ -11,7 +11,7 @@ def get_logger(level=logging.DEBUG):
     :return: object
         The logger handle object.
     """
-    logger = logging.getLogger('dpi-util')
+    logger = logging.getLogger('rpcap-server')
     # Work as a stand-alone logger when other loggers are not available.
     if not logger.handlers:
         formatter = logging.Formatter(
