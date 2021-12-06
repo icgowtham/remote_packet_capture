@@ -1,6 +1,6 @@
 server {
     listen 7777;
-    server_name dpi www.dummy.rpcap;
+    server_name rpcap www.dummy.rpcap;
 
     location / {
         include uwsgi_params;
