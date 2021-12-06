@@ -16,7 +16,7 @@
 * `Flask` - A Python based micro web framework. 
 * `Bootstrap` - For rendering the components of the HTML page.
 * `Sanic` - A Fast API, Python 3.7+ web server and web framework that's written to go fast.
-* `JQuery` - To control some of the HTML rendition.
+* `JQuery` - To control some HTML rendition.
 
 ### Sample usage:
 * On one terminal first run the server application:
@@ -44,6 +44,7 @@ Clone the Git repo and follow the steps below on any linux machine.
     git clone https://github.com/icgowtham/remote_packet_capture.git
 
 Server:
+
     cd remote_packet_capture/server
     make setup-env
     source .venv/bin/activate
@@ -51,15 +52,23 @@ Server:
     
 
 Agent: 
+
     cd remote_packet_capture/agent
     make setup-env
     source .venv/bin/activate
     python agent_rest_server.py
 
 
+### TODO
+- Provide an option to fetch the captured PCAP file from the agent.
+- Provide an option to show packet capture progress on the UI.
+
+
+
 ### Compliance
 
 To validate compliance, complexity and coverage:
 
+    cd server
     make compliance <code_path>
 
