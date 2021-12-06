@@ -15,7 +15,7 @@ def get_logger(level=logging.DEBUG):
     :return: object
         logging.get_logger() object.
     """
-    logger = logging.getLogger('agent')
+    logger = logging.getLogger('rp-agent')
     # Work as a stand-alone logger when other loggers are not available.
     if not logger.handlers:
         formatter = logging.Formatter(
