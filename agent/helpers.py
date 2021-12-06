@@ -28,4 +28,4 @@ def execute_shell_cmd(cmd):
         LOGGER.error(err_msg)
         return cpe.returncode, err_msg
     except Exception:  # pylint: disable=broad-except
-        LOGGER.exception('Unknown Exception. Could NOT run command {cmd}. %s'.format(cmd=cmd))
+        LOGGER.exception('Unknown Exception. Could NOT run command {cmd}.'.format(cmd=cmd))
