@@ -28,7 +28,7 @@ $ python run.py
 ```
 * Open a web browser and check http://<your machine's ip>:7581.
 * For e.g., if the machine IP is x.x.x.x, then type http://x.x.x.x:7581
-    * NOTE: Ingress and Egress traffic on port 5000 should be enabled to view the application.
+    * NOTE: Ingress and Egress traffic on port 7581 (or the configured port) should be enabled to view the application.
 * On another machine run the agent application:
 ```bash
 $ cd remote_packet_capture/agent
